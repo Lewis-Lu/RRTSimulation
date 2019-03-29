@@ -13,6 +13,7 @@ Authors
 Algorithm
 =========
 - Mandarin
+```
   节点向量 Vertice <-- q_start 
 
   边向量Edge <-- {}
@@ -48,7 +49,7 @@ Algorithm
   END
 
   RETURN
-
+```
 Requirements
 ============
 - Matlab R2013a or later.
