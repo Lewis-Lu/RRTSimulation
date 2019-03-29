@@ -6,7 +6,7 @@
 
 2019/3/29 Rendering the path vertices (No path printing yet)
 
-![classicRendering](RRT/classicRRT/classicRRT.gif)
+![classicRendering](RRT/classicRRT/classicRRT.gif){width:200px;}
 
 ## BiRRT implementation
 
