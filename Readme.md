@@ -4,6 +4,10 @@
 
 ## Classic RRT implementation
 
+2019/3/29 Rendering the path vertices (No path printing yet)
+
+![classicRendering](RRT/classicRRT/classicRRT.gif)
+
 ## BiRRT implementation
 
 ## MultiRRT implementation
