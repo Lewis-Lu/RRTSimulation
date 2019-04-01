@@ -10,7 +10,7 @@ plot(q_goal(1),q_goal(2),'r*', 'MarkerSize', 10);
 % end
 cRRT = 'classicRRT.gif';
 for i = 1: 2 : size(edge)
-    plot([edge(i,1),edge(i+1,1)],[edge(i,2),edge(i+1,2)],'dg--');
+    plot([edge(i,1),edge(i+1,1)],[edge(i,2),edge(i+1,2)],'db--');
     pause(0.025);
     frame = getframe(fig);
     im = frame2im(frame);
