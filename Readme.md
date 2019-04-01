@@ -1,16 +1,14 @@
-# Motion Planning Simulation 
+# Sampling-based Motion Planning Simulation 
 
-## This is a simulation using Matlab + Vrep
+This is a simulation using Matlab + Vrep
 
 ## Classic RRT implementation
 
-2019/3/29 Rendering the path vertices (No path printing yet)
+narrow environment path selection
 
-short path selection
+<img src="RRT/classicRRT/narrow2.gif" width="450">
 
-<img src="RRT/classicRRT/classicRRT.gif" width="450">
-
-long path selection
+maze environment path selection
 
 <img src="RRT/classicRRT/classicRRT1.gif" width="450">
 
