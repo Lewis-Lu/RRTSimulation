@@ -1,7 +1,7 @@
 % 0 --> Edge not in Free Space / 1 --> Edge in Free Space
 function status = QNewQNearEdgeInFreeSpace(map, q_near, q_new)
     % in map, 1 is freespace, 0 is not.
-    CheckPointNum = 10;
+    CheckPointNum = 20;
     delta = floor((q_new - q_near) / CheckPointNum);
     q_check = q_near;
     for i = 1:CheckPointNum

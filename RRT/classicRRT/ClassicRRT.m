@@ -1,6 +1,7 @@
 %% classic RRT implementation
-clc;
+clc; clear;
 addpath(genpath('classicRRTfunc'));
+
 %% Set Parameters and Assistant Vectors
 % maze.mat
 % q_start = [100, 100];
@@ -19,15 +20,15 @@ vertices = double.empty(0,2);
 vertices = q_start;
 
 % load map default
-% map = load('maze.mat');
-% map = 1 - ReverseRow(map.map);
-% [mapHeight, mapWidth] = size(map);
-
-% load map custom
-map = load('custom.mat');
-% map = ReverseRow(map);
-map = map.custom;
+map = load('maze.mat');
+map = 1 - ReverseRow(map.map);
 [mapHeight, mapWidth] = size(map);
+
+% % load map custom
+% map = load('custom.mat');
+% % map = ReverseRow(map);
+% map = map.custom;
+% [mapHeight, mapWidth] = size(map);
 
 %%
 tic;
@@ -71,8 +72,10 @@ for i = 1:k % iteration limit is k
                     vertices = [vertices; q_goal];
                     edge = [edge; q_new; q_goal];
                 end
-                toc;
+                time = toc;
                 disp('succeed.');
+                % it returns!!!!!!!!!!!!!!!!!!!!!!!!!
+                % f****k
                 return;
             end
         end
