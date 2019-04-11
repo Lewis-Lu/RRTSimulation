@@ -72,7 +72,7 @@ for i = 1:k % iteration limit is k
                     vertices = [vertices; q_goal];
                     edge = [edge; q_new; q_goal];
                 end
-                time = toc;
+                toc;
                 disp('succeed.');
                 % it returns!!!!!!!!!!!!!!!!!!!!!!!!!
                 % f****k

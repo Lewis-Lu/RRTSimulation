@@ -14,7 +14,7 @@ while ~isempty(leaf)
 end
 
 for i = 1: 2 :length(op_edge)
-    plot([op_edge(i,1),op_edge(i+1,1)],[op_edge(i,2),op_edge(i+1,2)],'r-*');
+    plot([op_edge(i,1),op_edge(i+1,1)],[op_edge(i,2),op_edge(i+1,2)],'g-*');
 end
 
 % smooth the path
@@ -32,8 +32,41 @@ for i = 1:2:size(smooth_edges)
 end
 
 % add control point for curvation
+ControlPoints = double.empty(0,2);
+smooth_curvation = double.empty(0,2);
+
+ControlCvxHullPoints = double.empty(0,2);
+
+TrajLinePart = double.empty(0,2);
+TrajLinePart = [TrajLinePart; q_start];
+
 for i = 2 : length(smooth_vertices)-1
     [ctrl_first, ctrl_second] = classicRRTcurvation(smooth_vertices, i);
-    plot(ctrl_first(1), ctrl_first(2),'b*', 'MarkerSize', 8);
-    plot(ctrl_second(1), ctrl_second(2),'b*', 'MarkerSize', 8);
+    ControlPoints = [ctrl_first; smooth_vertices(i,:); ctrl_second];
+    smooth_curvation = QuadraticBezierSpline(ControlPoints);
+    ControlCvxHullPoints = [ControlCvxHullPoints; ControlPoints];
+    
+    TrajLinePart = [TrajLinePart; ctrl_first; ctrl_second];
+    
+    plot(ctrl_first(1), ctrl_first(2),'bo', 'MarkerSize', 8);
+    plot(ctrl_second(1), ctrl_second(2),'bo', 'MarkerSize', 8);
+    
+    for k = 1:length(ControlPoints)
+        vertice_one = k;
+        vertice_two = k+1;
+        if k+1 == 4
+            vertice_two = 1;
+        end
+        plot([ControlPoints(vertice_one,1),ControlPoints(vertice_two,1)],[ControlPoints(vertice_one,2),ControlPoints(vertice_two,2)],'--k')
+    end
+    
+    for j = 1:length(smooth_curvation)-1
+        plot([smooth_curvation(j,1),smooth_curvation(j+1,1)], [smooth_curvation(j,2),smooth_curvation(j+1,2)],'r-');
+    end
+end
+
+TrajLinePart = [TrajLinePart; q_goal];
+
+for i = 1 : 2 : length(TrajLinePart)
+    plot([TrajLinePart(i,1),TrajLinePart(i+1,1)],[TrajLinePart(i,2),TrajLinePart(i+1,2)],'r-');
 end
