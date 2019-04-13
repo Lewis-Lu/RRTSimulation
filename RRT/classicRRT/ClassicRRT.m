@@ -19,16 +19,16 @@ edge = double.empty(0,2);
 vertices = double.empty(0,2);
 vertices = q_start;
 
-% load map default
-map = load('maze.mat');
-map = 1 - ReverseRow(map.map);
-[mapHeight, mapWidth] = size(map);
-
-% % load map custom
-% map = load('custom.mat');
-% % map = ReverseRow(map);
-% map = map.custom;
+% % load map default
+% map = load('maze.mat');
+% map = 1 - ReverseRow(map.map);
 % [mapHeight, mapWidth] = size(map);
+
+% load map custom
+map = load('custom.mat');
+% map = ReverseRow(map);
+map = map.custom;
+[mapHeight, mapWidth] = size(map);
 
 %%
 tic;
