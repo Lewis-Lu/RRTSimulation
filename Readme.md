@@ -2,8 +2,6 @@
 
 Lewis.
 
-
-
 This is a simulation using MATLAB plus V-rep
 
 
@@ -30,6 +28,7 @@ This is a simulation using MATLAB plus V-rep
 <div style="text-align:center;">
     <img src="RRT/classicRRT/classicCurve.jpg" width="450">
 </div>
+
 # License
 
 RRT (Rapidly-Exploring Random Trees) using [the MIT license](LICENSE).
