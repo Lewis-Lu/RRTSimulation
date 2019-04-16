@@ -1,3 +1,5 @@
+addpath(genpath('classicRRTfunc'));
+
 fig = figure;
 imshow(map);
 hold on;

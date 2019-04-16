@@ -1,3 +1,5 @@
+addpath(genpath('classicRRTfunc'));
+
 % plot trajectory with curve
 figure;
 imshow(map);
@@ -26,6 +28,14 @@ for i = 1 : length(smooth_vertices)-1
     smooth_edges = [smooth_edges; smooth_vertices(i,:)];
     smooth_edges = [smooth_edges; smooth_vertices(i+1,:)];
 end
+
+for i = 1:2:size(smooth_edges)
+   plot([smooth_edges(i,1),smooth_edges(i+1,1)],[smooth_edges(i,2),smooth_edges(i+1,2)],'r-o');
+end
+
+figure;
+imshow(map);
+hold on;
 
 for i = 1:2:size(smooth_edges)
    plot([smooth_edges(i,1),smooth_edges(i+1,1)],[smooth_edges(i,2),smooth_edges(i+1,2)],'g-o');

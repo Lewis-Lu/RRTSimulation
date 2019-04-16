@@ -1,15 +1,20 @@
 %% classic RRT implementation
 clc; clear;
 addpath(genpath('classicRRTfunc'));
+addpath(genpath('utilEnv'));
 
 %% Set Parameters and Assistant Vectors
 % maze.mat
-% q_start = [100, 100];
-% q_goal = [700, 600];
+q_start = [100, 100];
+q_goal = [700, 600];
 
-% custom.mat --> narrow_passage
-q_start = [50, 50];
-q_goal = [500, 50];
+% % custom.mat --> narrow_passage
+% q_start = [50, 50];
+% q_goal = [500, 50];
+
+% % blank.mat --> blank environment
+% q_start = [225,225];
+% q_goal = [400,400];
 
 delta_q = 50;
 k = 10000;
@@ -19,16 +24,23 @@ edge = double.empty(0,2);
 vertices = double.empty(0,2);
 vertices = q_start;
 
-% % load map default
-% map = load('maze.mat');
-% map = 1 - ReverseRow(map.map);
+% load map default
+map = load('maze.mat');
+map = 1 - ReverseRow(map.map);
+[mapHeight, mapWidth] = size(map);
+
+% % load map custom
+% map = load('custom.mat');
+% % map = ReverseRow(map);
+% map = map.custom;
 % [mapHeight, mapWidth] = size(map);
 
-% load map custom
-map = load('custom.mat');
-% map = ReverseRow(map);
-map = map.custom;
-[mapHeight, mapWidth] = size(map);
+% % load map blank
+% map = load('blank.mat');
+% % map = ReverseRow(map);
+% map = map.custom;
+% [mapHeight, mapWidth] = size(map);
+
 
 %%
 tic;
