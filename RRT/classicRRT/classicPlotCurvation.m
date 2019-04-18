@@ -2,7 +2,11 @@ addpath(genpath('classicRRTfunc'));
 
 % plot trajectory with curve
 figure;
-imshow(map);
+if trick == 0
+    imshow(originMap); 
+else 
+    imshow(map);
+end
 hold on;
 
 % do cut leaf operation
@@ -32,9 +36,13 @@ end
 for i = 1:2:size(smooth_edges)
    plot([smooth_edges(i,1),smooth_edges(i+1,1)],[smooth_edges(i,2),smooth_edges(i+1,2)],'r-o');
 end
-
+       
 figure;
-imshow(map);
+if trick == 0
+    imshow(originMap); 
+else 
+    imshow(map);
+end
 hold on;
 
 for i = 1:2:size(smooth_edges)
@@ -51,9 +59,12 @@ TrajLinePart = double.empty(0,2);
 TrajLinePart = [TrajLinePart; q_start];
 
 for i = 2 : length(smooth_vertices)-1
-    [ctrl_first, ctrl_second] = classicRRTcurvation(smooth_vertices, i);
+    [ctrl_first, ctrl_second] = classicRRTcurvation(map, smooth_vertices, i);
+    
     ControlPoints = [ctrl_first; smooth_vertices(i,:); ctrl_second];
+    
     smooth_curvation = QuadraticBezierSpline(ControlPoints);
+    
     ControlCvxHullPoints = [ControlCvxHullPoints; ControlPoints];
     
     TrajLinePart = [TrajLinePart; ctrl_first; ctrl_second];

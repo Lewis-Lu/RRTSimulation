@@ -1,6 +1,5 @@
-% smooth_vertices = classicRRTsmooth(map, op_vertices)
-function smooth_vertices = classicRRTsmooth(map, op_vertices)
-%     addpath(genpath('classicRRTfunc'));
+% smooth_vertices = Smooth(map, op_vertices)
+function smooth_vertices = Smooth(map, op_vertices)
     smooth_vertices = double.empty(0,2);
     turningPoint_index = 1;
     
@@ -12,6 +11,9 @@ function smooth_vertices = classicRRTsmooth(map, op_vertices)
             turningPoint_index = i-1;
             smooth_vertices = [smooth_vertices; op_vertices(turningPoint_index,:)];
         end
+    end
+    if i == length(op_vertices)
+        smooth_vertices = [smooth_vertices; op_vertices(end,:)];
     end
 end
 

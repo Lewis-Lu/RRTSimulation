@@ -1,4 +1,4 @@
-function [control_first, control_second] = classicRRTcurvation(map, turning_vertices, index)
+function [control_first, control_second] = Curvation(map, turning_vertices, index)
     delta = 35;
     direction_first = turning_vertices(index-1,:) - turning_vertices(index,:);
     dist_first = norm(turning_vertices(index-1,:) - turning_vertices(index,:));
@@ -12,7 +12,7 @@ function [control_first, control_second] = classicRRTcurvation(map, turning_vert
     control_first = floor(turning_vertices(index,:) + delta .* u_first);
     control_second = floor(turning_vertices(index,:) + delta .* u_second);
 
-    while QNewQNearEdgeInFreeSpace(map, control_first, control_second) == 0
+    while QnewQnearInFreeSpace(map, control_first, control_second) == 0
         delta = delta - 5;
         direction_first = turning_vertices(index-1,:) - turning_vertices(index,:);
         dist_first = norm(turning_vertices(index-1,:) - turning_vertices(index,:));
