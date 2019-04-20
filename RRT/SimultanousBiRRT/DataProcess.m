@@ -17,25 +17,29 @@ global biRRTBelowAverRate;
 
 biRRTAver = aver;
 biRRTBelowAverRate = Rate;
+% 
+% figure;
+% b = bar(Time_Success);
+% 
+% grid on
+% hold on
+% 
+% plot([0,length(Time_Success)], [aver, aver], 'r--');
+% plot([0,length(Time_Success)], [max_value, max_value], 'b--');
+% plot([0,length(Time_Success)], [min_value, min_value], 'g--');
+% 
+% xlim([0, length((Time_Success))]);
+% 
+% figure;
+% 
+% hold on;
+% grid on;
+% 
+% plot(Success_Index, Time_Success, 'r-');
+% plot([0,length(Time_Success)], [aver, aver], 'b--');
+% 
+% xlim([0, length((Time_Success))]);
 
 figure;
-b = bar(Time_Success);
-
-grid on
-hold on
-
-plot([0,length(Time_Success)], [aver, aver], 'r--');
-plot([0,length(Time_Success)], [max_value, max_value], 'b--');
-plot([0,length(Time_Success)], [min_value, min_value], 'g--');
-
-xlim([0, length((Time_Success))]);
-
-figure;
-
-hold on;
-grid on;
-
-plot(Success_Index, Time_Success, 'r-');
-plot([0,length(Time_Success)], [aver, aver], 'b--');
-
-xlim([0, length((Time_Success))]);
+c = categorical({'Success', 'Failure'});
+b = bar(c, [success iter-success],0.5, 'b');

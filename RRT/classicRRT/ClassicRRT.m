@@ -9,11 +9,15 @@ addpath(genpath('utilEnv'));
 
 %% Set Parameters and Assistant Vectors
 
-% maze.mat
-q_start = [100, 100];
-q_goal = [700, 600];
+% % maze.mat
+% q_start = [100, 100];
+% q_goal = [700, 600];
 
-% custom.mat --> narrow_passage
+% %cluster env
+q_start = [500, 300];
+q_goal = [3000, 1900];
+
+% %custom.mat --> narrow_passage
 % q_start = [50, 50];
 % q_goal = [500, 50];
 
@@ -29,17 +33,24 @@ edge = double.empty(0,2);
 vertices = double.empty(0,2);
 vertices = q_start;
 
-% load map default
+% % load map default
+% trick = 0;
+% map = load('maze.mat');
+% map = 1 - ReverseRow(map.map);
+% originMap = map;
+% map = PreprocessMap(map);
+% [mapHeight, mapWidth] = size(map);
+
+%load map cluster
 trick = 0;
-map = load('maze.mat');
-map = 1 - ReverseRow(map.map);
-
+map = load('cluster.mat');
+map = ReverseRow(map);
+map = map.custom;
 originMap = map;
-
 map = PreprocessMap(map);
 [mapHeight, mapWidth] = size(map);
 
-% load map custom
+% %load map custom
 % trick = 1;
 % map = load('custom.mat');
 % % map = ReverseRow(map);

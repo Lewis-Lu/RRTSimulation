@@ -8,5 +8,5 @@ filepath = join(str);
 % filepath = 'jpg2mat\narrow_passage.jpg';
 raw = imread(filepath);
 custom = double(imbinarize(rgb2gray(raw),0.5));
-file = 'blank.mat';
+file = 'cluster.mat';
 save(file,'-mat', 'custom');

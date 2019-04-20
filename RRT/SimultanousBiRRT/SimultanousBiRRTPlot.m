@@ -3,7 +3,7 @@ addpath(genpath('utilEnv'));
 addpath(genpath('utilFunc'));
 
 fig = figure;
-imshow(map);
+imshow(originMap);
 hold on;
 
 plot(q_start(1),q_start(2),'r*', 'MarkerSize', 10);
@@ -25,9 +25,9 @@ for i = 1:2:length(edgesDst)
     plot([edgesDst(i,1), edgesDst(i+1,1)],[edgesDst(i,2), edgesDst(i+1,2)],'b--');
 end
 
-% figure;
-% imshow(map);
-% hold on;
+figure;
+imshow(map);
+hold on;
 
 OpverticesSrc = verticesSrc;
 OpverticesDst = verticesDst;
