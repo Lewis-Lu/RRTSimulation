@@ -1,17 +1,18 @@
 %% simultanous bi-RRT implementation
 clc; 
+clear;
+
 addpath(genpath('utilEnv'));
 addpath(genpath('utilFunc'));
+addpath(genpath('utilMap'));
 
 global a;
 global time;
 
-% sim_result = ['begin'];
-% custom.mat --> narrow_passage
-q_start = [50, 50];
-q_goal = [700, 600];
+q_start = [50, 60];
+q_goal = [450, 450];
 
-delta_q = 50;
+delta_q = 20;
 k = 10000;
 p = 0.7;
 
@@ -24,8 +25,7 @@ verticesSrc = [verticesSrc; q_start];
 verticesDst = [verticesDst, q_goal];
 
 % trick = 0;
-map = load('maze.mat');
-map = 1 - ReverseRow(map.map);
+map = im2bw(imread('utilMap\clusterMap.bmp'));
 originMap = map;
 % map to be bolder
 map = PreprocessMap(map);
@@ -78,18 +78,15 @@ for i = 1:k
 %                verticesSrc = [verticesSrc; newDst];
 %                edgesSrc = [edgesSrc; newSrc; newDst];
                toc;
-%                display('success');
+               display('success');
                a = [a;1];
                time = [time; toc];
                return;
            end
        end
    end
-%%%%%%%%%%%
 end
 toc;
-% disp('failure');
+disp('failure');
 a = [a;0];
 time = [time; toc];
-% sim_result(end+1,:) = 'failure';
-return;

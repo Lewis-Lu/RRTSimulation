@@ -1,5 +1,5 @@
 function [control_first, control_second] = Curvation(map, turning_vertices, index)
-    delta = 35;
+    delta = 15;
     direction_first = turning_vertices(index-1,:) - turning_vertices(index,:);
     dist_first = norm(turning_vertices(index-1,:) - turning_vertices(index,:));
 

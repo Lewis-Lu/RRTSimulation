@@ -10,11 +10,15 @@ This is a simulation using MATLAB plus V-rep
 
 1. narrow environment path selection
 
-<img src="RRT/classicRRT/resultPic/narrow2.gif" width="360">
+<div style="text-align:center;">
+    <img src="RRT/classicRRT/resultPic/rawSmooth.png" width="360">
+</div>
 
 2. maze environment path selection
 
-<img src="RRT/classicRRT/resultPic/classicRRT1.gif" width="360" align="center">
+<div style="text-align:center;">
+    <img src="RRT/classicRRT/resultPic/rawSmooth.png" width="360">
+</div>
 
 3. classic RRT path finding and foundational smooth (with blue star point as for further curvation):
 

@@ -61,6 +61,7 @@ for i = 1:k % iteration limit is k
     if all(isnan(check_q_new))
         continue;
     end
+    
     % check q_new out of boundary
     if check_q_new(1) < 1 || check_q_new(1) > mapWidth || check_q_new(2) < 1 || check_q_new(2) > mapHeight
         continue;
