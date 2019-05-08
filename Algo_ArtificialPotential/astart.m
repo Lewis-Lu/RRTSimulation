@@ -1,7 +1,7 @@
 % Artificial Potential Function
 
-map=int16(im2bw(imread('map2.bmp'))); % input map read from a bmp file. for new maps write the file name here
-source=[50 50]; % source position in Y, X format
+map=int16(im2bw(imread('clusterMap.bmp'))); % input map read from a bmp file. for new maps write the file name here
+source=[50 60]; % source position in Y, X format
 goal=[450 450]; % goal position in Y, X format
 
 robotDirection=pi/8; % initial heading direction
