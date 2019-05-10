@@ -1,19 +1,10 @@
-%% simultanous bi-RRT implementation
-clc; 
-clear;
+% function [result, time] = biRRT(map, q_start, q_goal, p, delta_q)
+function [result, time] = biRRT(map, q_start, q_goal, delta_q)
 
 addpath(genpath('utilFunc'));
 addpath(genpath('utilMap'));
 
-global a;
-global time;
-
-q_start = [50, 60];
-q_goal = [450, 450];
-
-delta_q = 20;
 k = 10000;
-p = 0.7;
 
 verticesSrc = double.empty(0,2);
 verticesDst = double.empty(0,2);
@@ -24,21 +15,13 @@ edgesDst = double.empty(0,2);
 verticesSrc = [verticesSrc; q_start];
 verticesDst = [verticesDst, q_goal];
 
+[mapHeight, mapWidth] = size(map);
+
 % initialize tree
 v1 = verticesSrc;
 e1 = edgesSrc;
 v2 = verticesDst;
 e2 = edgesDst;
-
-%% load map
-
-map = im2bw(imread('utilMap\clusterMap.bmp'));
-originMap = map;
-% map to be bolder
-map = PreprocessMap(map);
-[mapHeight, mapWidth] = size(map);
-
-%% loop begins
 
 tic;
 for i = 1:k
@@ -57,8 +40,7 @@ for i = 1:k
             v2 = [v2; q_new2];
             e2 = [e2; q_near2; q_new2];
             if FinalEdgeInFreeSpace(map, q_new1, q_new2)
-                disp('success');
-                toc;
+                time = toc;
                 if v1(1,:) == q_start
                     verticesSrc = v1;
                     edgesSrc = e1;
@@ -70,6 +52,7 @@ for i = 1:k
                     verticesDst = v1;
                     edgesDst = e1;
                 end
+                result = 1;
                 return;
             end
         end
@@ -82,7 +65,6 @@ for i = 1:k
     v2 = v_temp;
     e2 = e_temp;
 end
-toc;
-disp('failure');
-a = [a;0];
-time = [time; toc];
+time = toc;
+result = 0;
+end
