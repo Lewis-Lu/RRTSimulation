@@ -16,14 +16,14 @@ originMap = map;
 % map to be bolder
 map = PreprocessMap(map);
 
-sim_total = 100;
+sim_total = 1;
 sim_success = 0;
 sim_failure = 0;
 
 time = double.empty(0, 1);
 
 for i = 1:sim_total
-    [result, t] = simulbiRRT(map, q_start, q_goal, p, delta_q);
+    [result, t, verticesSrc, verticesDst, edgesSrc, edgesDst] = simulbiRRT(map, q_start, q_goal, p, delta_q);
     if result
         sim_success = sim_success + 1;
         time = [time;t];
@@ -32,11 +32,14 @@ for i = 1:sim_total
     end
 end
 
-disp(sim_success);
+SimultanousBiRRTPlot;
 
-figure;
-hold on
-b1 = bar(time',0.4,'b');
-plot([0, sim_total],[mean(time),mean(time)], 'r-');
-xlim([0,100]);
-ylabel('Planning Time (s)');
+% disp(sim_success);
+% 
+% figure;
+% hold on
+% b1 = bar(time',0.4,'b');
+% plot([0, sim_total],[mean(time),mean(time)], 'r-');
+% xlim([0,100]);
+% 
+% ylabel('Planning Time (s)');

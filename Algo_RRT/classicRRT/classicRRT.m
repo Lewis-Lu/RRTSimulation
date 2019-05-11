@@ -1,33 +1,16 @@
-%% classic RRT implementation
-clc; 
-clear;
 
-global a;
-global time;
+function [result, time, vertices, edge] = classicRRT(map, q_start, q_goal, p, delta_q)
 
 addpath(genpath('util'));
 addpath(genpath('utilEnv'));
 
-%% Set Parameters and Assistant Vectors
-
-% all environments are set to be 500*500
-q_start = [50, 60];
-q_goal =  [450, 450];
-
-delta_q = 20;
 k = 10000;
-p = 0.7;
 
 edge = double.empty(0,2);
 vertices = double.empty(0,2);
 vertices = q_start;
 
-trick = 0;
-map = im2bw(imread('utilMap\clusterMap.bmp'));
 [mapHeight, mapWidth] = size(map);
-
-originMap = map;
-map = PreprocessMap(map);
 
 if map(int32(q_start(2)),int32(q_start(1))) == 0
     disp('Start Point in obstacle region.\n failed.');
@@ -39,7 +22,6 @@ if map(int32(q_goal(2)),int32(q_goal(1))) == 0
     return;
 end
 
-%%
 tic;
 for i = 1:k % iteration limit is k
     % generate random point in map
@@ -86,16 +68,12 @@ for i = 1:k % iteration limit is k
                     vertices = [vertices; q_goal];
                     edge = [edge; q_new; q_goal];
                 end
-                toc;
-                disp('succeed.');
-                a = [a;1];
-                time = [time; toc];
-                % it returns!!!!!!!!!!!!!!!!!!!!!!!!!
+                time = toc;
+                result = 1;
                 return;
             end
         end
     end
 end
-time = [time; toc];
-disp('failed.');
-a = [a; 0];
+result = 0;
+end

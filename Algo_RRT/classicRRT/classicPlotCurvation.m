@@ -1,11 +1,9 @@
 addpath(genpath('util'));
 
 figure;
-if trick == 0
-    imshow(originMap); 
-else 
-    imshow(map);
-end
+
+imshow(originMap);
+
 hold on;
 
 plot(q_start(1),q_start(2),'r*', 'MarkerSize', 10);
@@ -16,12 +14,11 @@ end
 
 % plot trajectory with curve
 figure;
-if trick == 0
-    imshow(originMap); 
-else 
-    imshow(map);
-end
+
+imshow(originMap);
+
 hold on;
+
 
 % do cut leaf operation
 % do path planning
@@ -52,12 +49,11 @@ for i = 1:2:size(smooth_edges)
 end
        
 figure;
-if trick == 0
-    imshow(originMap); 
-else 
-    imshow(map);
-end
+
+imshow(originMap);
+
 hold on;
+
 
 for i = 1:2:size(smooth_edges)
    plot([smooth_edges(i,1),smooth_edges(i+1,1)],[smooth_edges(i,2),smooth_edges(i+1,2)],'g-o');

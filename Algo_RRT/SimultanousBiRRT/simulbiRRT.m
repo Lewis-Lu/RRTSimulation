@@ -1,5 +1,5 @@
-% function result = simulbiRRT(map, q_start, q_goal, p, delta_q)
-function [result, time] = simulbiRRT(map, q_start, q_goal, p, delta_q)
+% function [result, time, verticesSrc, verticesDst, edgesSrc, edgesDst]  = simulbiRRT(map, q_start, q_goal, p, delta_q)
+function [result, time, verticesSrc, verticesDst, edgesSrc, edgesDst] = simulbiRRT(map, q_start, q_goal, p, delta_q)
 addpath(genpath('utilEnv'));
 addpath(genpath('utilFunc'));
 addpath(genpath('utilMap'));
@@ -109,8 +109,10 @@ for i = 1:k
     end
 end
 result = 0;
-toc;
+time = toc;
 end
+
+
 function d = Dist(NewSrc, NewDst)
 d = sum((NewSrc - NewDst).^2);
 end
