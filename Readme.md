@@ -1,39 +1,26 @@
 # Sampling-based Motion Planning Simulation 
 
-Lewis.
-
-This is a simulation using MATLAB plus V-rep
+MATLAB 2017a or later is recommended.
 
 
 
-## Classic RRT implementation
+## Some Results
 
-1. narrow environment path selection
+1. narrow environment tree generation(sRRT, biRRTs)
 
-<div style="text-align:center;">
-    <img src="RRT/classicRRT/resultPic/rawSmooth.png" width="360">
-</div>
+   <div style="text-align:center;">
+       <img src="result/sRRT/s6.jpg" width=30%>
+       <img src="result/biRRT/b6.jpg" width=30%>
+       <img src="result/simbiRRT/sb1.jpg" width=30%>
+   </div>
 
-2. maze environment path selection
-
-<div style="text-align:center;">
-    <img src="RRT/classicRRT/resultPic/rawSmooth.png" width="360">
-</div>
-
-3. classic RRT path finding and foundational smooth (with blue star point as for further curvation):
+2. narrow environment path generation (sRRT, biRRTs), with curve smoothness.
 
 <div style="text-align:center;">
-    <img src="RRT/classicRRT/resultPic/rawSmooth.png" width="360">
+    <img src="result/sRRT/s4.jpg" width=30%>
+    <img src="result/biRRT/b4.jpg" width=30%>
+    <img src="result/simbiRRT/sb3.jpg" width=30%>
 </div>
-
-4. classic RRT smooth curve generated (Red Curve).
-
-   As black triangle as convex hull to constraint the curve. 
-
-<div style="text-align:center;">
-    <img src="RRT/classicRRT/resultPic/classicCurve.jpg" width="450">
-</div>
-
 
 # License
 
