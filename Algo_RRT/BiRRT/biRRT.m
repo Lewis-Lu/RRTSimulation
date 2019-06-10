@@ -1,5 +1,5 @@
-% function [result, time] = biRRT(map, q_start, q_goal, p, delta_q)
-function [result, time] = biRRT(map, q_start, q_goal, delta_q)
+% function [result, time, v1, e1, v2, e2] = biRRT(map, q_start, q_goal, p, delta_q)
+function [result, time, verticesSrc, edgesSrc, verticesDst, edgesDst] = biRRT(map, q_start, q_goal, delta_q)
 
 addpath(genpath('utilFunc'));
 addpath(genpath('utilMap'));

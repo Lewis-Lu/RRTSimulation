@@ -7,7 +7,7 @@ clear;clc;
 % configuration
 q_start = [50, 60];
 q_goal = [450, 450];
-p = 0.7;
+p = 0.6;
 delta_q = 30;
 
 % map information
