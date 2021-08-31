@@ -22,15 +22,15 @@ Rapid-Exploring Random Tree (RRT) method
 
 - Bidirectional RRT 
 
-![](\result\rrt_bidirectional\b3.jpg)
+![](result/rrt_bidirectional/b3.jpg)
 
-![](\result\rrt_bidirectional\b2.jpg)
+![](/result/rrt_bidirectional/b2.jpg)
 
-![](\result\rrt_bidirectional\b1.jpg)
+![](/result/rrt_bidirectional/b1.jpg)
 
 - Computation Time Comparison
 
-![](\result\rrt_computation_compare\comp.jpg)
+![](/result/rrt_computation_compare/comp.jpg)
 
 **Requirements**
 
