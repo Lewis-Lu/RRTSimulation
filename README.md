@@ -10,15 +10,15 @@ Rapid-Exploring Random Tree (RRT) method
 
 - Naive RRT building
 
-![](\result\rrt_naive\s6.jpg)
+![](result/rrt_naive/s6.jpg)
 
 - RRT pruning and visibility handling
 
-![](\result\rrt_naive\s5.jpg)
+![](result/rrt_naive/s5.jpg)
 
 - Turning corner constraints reinforcement
 
-![](\result\rrt_naive\s4.jpg)
+![](result/rrt_naive/s4.jpg)
 
 - Bidirectional RRT 
 
